@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function greeting(){ 
+    alert("Hello world!");
+}
+setTimeout(greeting, 250);
+
+var button = document.getElementById("my-button");
+button.onclick = function(){ 
+    oneMethod();
+    setTimeout(function(){
+        document.getElementById("notice").style.color = "red";
+    }, 250);
+};
+
+
+		 
+</script>
+</head>
+<body>
+
+</body>
+</html>

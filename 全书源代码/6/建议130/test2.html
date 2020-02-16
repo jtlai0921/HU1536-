@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+// 获取指定元素的样式属性值
+// 参数：e表示具体的元素，n表示要获取元素的脚本样式的属性名，如"width"、"borderColor"
+// 返回值：返回该元素e的样式属性n的值
+function getStyle(e,n){
+    if(e.style[n]){ 
+        return e.style[n];
+    }
+    else if(e.currentStyle){ 
+        return e.currentStyle[n];
+    }
+    else if(document.defaultView && document.defaultView.getComputedStyle){
+        n = n.replace(/([A-Z])/g,"-$1"); 
+        n = n.toLowerCase();
+        var s = document.defaultView.getComputedStyle(e,null);
+        if(s)
+            return s.getPropertyValue(n);
+    }
+    elsel
+        return null;
+}
+
+
+</script>
+</head>
+<body>
+<div id="div"></div>
+<script language="javascript" type="text/javascript">
+var div = document.getElementsByTagName("div")[0]; 
+var w = getStyle(div,"width");		// 调用扩展函数，返回字符串"auto"
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+<script type="text/javascript">
+    window.onload = function outerFunction() {
+        var obj = document.getElementById("element");
+        obj.onclick = function innerFunction() {
+            alert("Hi! I will leak");
+        };
+        obj.bigString = new Array(1000).join(new Array(2000).join("XXXXX"));
+    };
+</script>
+<button id="element">Click Me</button>
+</body>
+</html>

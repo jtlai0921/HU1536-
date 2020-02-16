@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+Object.prototype.a = 1; 	// 声明Object的原型属性a的值为1
+Function.prototype.a= 2; 	// 声明Function的原型属性a的值为2
+alert(Object.a); 	//2，说明属性a指向Function构造函数的原型
+alert(Function.a); 	//2，说明属性a指向Function构造函数的原型
+var o = {}	// 空的对象直接量
+alert(o.a); 	//1，说明属性a指向Object构造函数的原型
+var f = Object; 	// 引用Object构造函数
+alert(f.a); 	//2，说明属性a指向Function构造函数的原型
+var f1 = new Function();	// 实例化Function对象
+alert(f1.a); 	//2，说明属性a指向Function构造函数的原型
+var o1 = new Object();	// 实例化Object对象
+alert(o1.a); 	//1，说明属性a指向Object构造函数的原型
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function A(x,y){ 	// 构造函数A
+    this.x = x;
+    this.y = y;
+}
+A.prototype.add = function(){
+    return this.x + this.y; 
+}
+function B(x,y){ 
+    A.call(this,x,y);	// 类继承实现
+}
+B.prototype = new A();	// 原型继承实现
+var b = new  B(10,20); 
+alert(b.x); 	//10
+alert(b.y); 	//20
+alert(b.add());	//30
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

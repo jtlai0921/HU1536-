@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function a(){	// 构造函数a
+    this.x = [];
+}
+function b(){	// 构造函数b
+}
+b.prototype = new a();	// 构造函数b的原型指向a的实例
+var f1 = new b();
+var f2 = new b();
+f1.x.push(1);
+alert(f2.x); 	//1，说明实例f2的x属性值也受到影响
+
+
+</script>
+</head>
+<body>
+
+
+
+
+</body>
+</html>

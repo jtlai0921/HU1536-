@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function Book(){	//空类
+}
+Book.prototype.title = "Javascript设计大法"; 
+Book.prototype.pages = 200; 
+Book.prototype.what = function(){
+    alert(this.title +this.pages);
+};
+
+function Book(title,pages){	// 构造函数模式设计
+    this.title = title;
+    this.pages = pages; 
+}
+Book.prototype.what = function(){	// 原型模式设计
+    alert(this.title +this.pages);
+};
+
+
+function Book(title,pages){
+    this.title = title;
+    this.pages = pages; 
+    if(typeof Book.isLock == "undefined"){ // 创建原型方法的锁，如果不存在该方法则创建
+        Book.prototype.what = function(){
+            alert(this.title +this.pages);
+        };
+        Book.isLock = true;	// 创建原型方法后，把锁锁上，避免重复创建
+    }
+}
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

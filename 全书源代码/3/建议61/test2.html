@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+function f(){
+    var a = 1; 
+    b = function(){
+        alert( a ); 
+    }
+    c = function(){
+        a ++ ; 
+    }
+    d = function( x ){ 
+        a = x; 
+    }
+}
+</script>
+<button onclick="f()">按钮1：(f(    ))()</button><br />
+<button onclick="b()">按钮2：(b = function(){alert( a );})()</button><br />
+<button onclick="c()">按钮3：(c = function(){a ++ ;})()</button><br />
+<button onclick="d(100)">按钮4：(d = function( x ){a = x; }) (100)</button><br />
+
+
+
+</body>
+</html>

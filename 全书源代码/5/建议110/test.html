@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+// 清除指定元素及其所有子元素之间的空格
+// 参数：指定要清除空格的起始节点
+function clean(e){
+    var e = e || document; 
+    var f = e.firstChild; 
+    while(f != null){ 
+        if(f.nodeType == 3 && /\s/.test(f.nodeValue)){ 
+            e.removeChild(f); 
+        }
+        else if(f.nodeType == 1){ 
+            arguments.callee(f); 
+        }
+        f = f.nextSibling; 
+    }
+}
+
+		 
+</script>
+</head>
+<body>
+
+</body>
+</html>

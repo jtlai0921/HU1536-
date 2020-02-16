@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var event = event || window.event;
+if(event.offsetX || event.offsetY ){ 
+    x = event.offsetX;
+    y = event.offsetY;
+}
+else if(event.layerX || event.layerY ){ 
+    x = event.layerX;
+    y = event.layerY;
+}
+
+
+
+
+		 
+</script>
+</head>
+<body>
+
+
+
+<input type="text" id ="text" />
+<span style="position:absolute;">
+    <div id="div1" style="width:200px;height:160px;border:solid 1px 
+red;">鼠标跟随</div>
+</span>
+<script language="javascript" type="text/javascript">
+var  t = document.getElementById("text");
+var div1 = document.getElementById("div1");
+div1.onmousemove = function(event){
+    var event = event || window.event; 
+    if(event.offsetX || event.offsetY ){
+        t.value = event.offsetX + " " + event.offsetY;
+    }
+    else if(event.layerX || event.layerY ){
+        t.value = (event.layerX - 1) + " " + (event.layerY -1) ;
+    }
+}
+
+</body>
+</html>

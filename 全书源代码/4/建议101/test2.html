@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+function F( x, y ){ 	// 多态类型
+    function A( x, y ){ 
+        this.add = function(){
+            return x + "" + y;
+        }
+    }
+    function B( x, y ){ 
+        this.add = function(){
+            return x + y;
+        }
+    }
+    if( typeof x == "string" || typeof y == "string" ){ 
+        A.call( this, x, y );
+    }
+    else{
+        B.call( this, x, y ); 
+    }
+}
+var f1 = new F( 3,4 ); 
+alert( f1.add() ); 	// 调用对象方法add()，返回数值7
+var f2 = new F( "3","4" ); 	// 实例化类F，传递字符串
+alert( f2.add() ); 	// 调用对象方法add()，返回字符串34
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

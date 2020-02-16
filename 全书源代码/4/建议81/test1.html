@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+Function.prototype.a = function(){	// Function原型方法
+    alert( "Function" );
+}
+Object.prototype.a = function(){	// Object原型方法
+    alert( "Object" );
+}
+function f(){	// 构造函数f
+    this.a = "a";
+}
+f.prototype = {	// 构造函数f的原型方法
+    w : function(){
+        alert( "w" );
+    }
+}
+alert( f instanceof Function ); //true，说明f是Function的实例
+alert( f.prototype instanceof Object );//true，说明f的原型也是对象
+alert( Function instanceof Object );//true，说明Function是Object的实例
+alert( Function.prototype instanceof Object ); //true，说明Function的原型是Object的实例
+alert( Object instanceof Function );//true，说明Object是Function的实例
+alert( Object.prototype instanceof Function ); //false，说明Object.prototype是所有父原型的顶层
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

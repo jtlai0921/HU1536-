@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function A(){	// 超类A
+    this.get = function(){
+        alert("A");
+    }
+}
+function B(){	// 子类B
+    this.get = function(){
+        alert("B");
+    }
+}
+B.prototype = new A();	// 设置B类继承A类
+function C(){	// 子类C
+    this.get = function(){
+        alert("C");
+    }
+}
+C.prototype = new A();	// 设置C类继承A类
+function F(x){ 	// 多态类F
+    this.x =x; 
+}
+F.prototype.get = function(){
+    if(this.x instanceof A) 	// 判断是否为超类的实例，然后调用不同类的方法
+        this.x.get()
+}
+var b = new B();
+var c = new C();
+var f1 =new F(b);
+var f2 =new F(c);
+f1.get();	//B，此时该方法指向的是B类中的方法get()
+f2.get();	//C，此时该方法指向的是C类中的方法get()
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

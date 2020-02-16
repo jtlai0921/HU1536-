@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function Base(){	// 基类
+    var _this = this;	// 存储初始化时对象的引用指针
+    this.m = function(){
+        return _this; 	//初始化时对象的引用指针
+    };
+    this.name = "Base";
+}
+function F(){	// 子类
+    this.name = "F";
+}
+F.prototype = new Base();	// 继承基类
+var f = new F();
+var n = f.m();
+alert(n.name);	// this始终指向原型对象，而不再是子类的实例对象
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

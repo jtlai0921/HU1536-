@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var req = new XMLHttpRequest();
+req.open('GET', 'rollup_images.php', true);
+req.onreadystatechange = function() {
+    if(req.readyState == 4) {
+        splitImages(req.responseText);
+    }
+};
+req.send(null);
+
+
+
+$images = array('kitten.jpg', 'sunset.jpg', 'baby.jpg');
+foreach ($images as $image) { 
+    $image_fh = fopen($image, 'r');
+    $image_data = fread($image_fh, filesize($image));
+    fclose($image_fh);
+    $payloads[] = base64_encode($image_data);
+}
+$newline = chr(1); 
+echo implode($newline, $payloads);
+
+
+
+function splitImages(imageString) {
+    var imageData = imageString.split("\u0001");
+    var imageElement;
+    for(var i = 0, len = imageData.length; i < len; i++) {
+        imageElement = document.createElement('img');
+        imageElement.src = 'data:image/jpeg;base64,' + imageData[i];
+        document.getElementById('container').appendChild(imageElement);
+    }
+}
+
+
+
+function handleImageData(data, mimeType) {
+    var img = document.createElement('img');
+    img.src = 'data:' + mimeType + ';base64,' + data;
+    return img;
+}
+function handleCss(data) {
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    var node = document.createTextNode(data);
+    style.appendChild(node);
+    document.getElementsByTagName_r('head')[0].appendChild(style);
+}
+function handleJavascript(data) {(data);}
+
+
+
+
+var req = new XMLHttpRequest();
+var getLatestPacketInterval, lastLength = 0;
+req.open('GET', 'rollup_images.php', true);
+req.onreadystatechange = readyStateHandler;
+req.send(null);
+function readyStateHandler() {
+    if(req.readyState === 3 && getLatestPacketInterval === null) {
+        getLatestPacketInterval = window.setInterval(function() {
+            getLatestPacket();
+        }, 15);
+    }
+    if(req.readyState === 4) {
+        clearInterval(getLatestPacketInterval);
+        getLatestPacket();
+    }
+}
+function getLatestPacket() {
+    var length = req.responseText.length;
+    var packet = req.responseText.substring(lastLength, length);
+    processPacket(packet);
+    lastLength = length;
+}
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var name = "this = window";
+var o ={
+    name : "this = o",
+    f : function(){
+        return this;
+    }
+};
+var o1 = {
+    name : "this = o1",
+    f : o.f	// 引用对象o中的方法f()
+}
+var a = o1.f();
+alert(a.name);	// this实际指向对象为o1
+
+var o1 = {
+    name : "this = o1",
+    f : function(){	// this使用闭包封装方法的引用
+        return o.f; 
+    }
+}
+var a = o1.f()();
+alert(a.name);	// this实际指向对象为Window
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

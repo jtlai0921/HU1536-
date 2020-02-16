@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function wrap(title,pages){ 
+    var book = new Object();
+    book.title = title; 
+    book.pages = pages;
+    book.what = function(){
+        alert(this.title +this.pages)
+    }
+    return book; 	//初始化后的对象
+}
+
+what = function(){
+    alert(this.title +this.pages)
+}
+function wrap(title,pages){
+    var book = new Object();
+    book.title = title;
+    book.pages = pages;
+    book.what = what; 
+    return book;
+}
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

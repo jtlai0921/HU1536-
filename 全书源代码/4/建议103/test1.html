@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+A = function(x,y){ 	// 子类A
+    F.call(this,x,y) ; 	// 继承掺元类F 
+};
+B = function(x,y){ 	// 子类B
+    F.call(this,x,y) ; 	// 继承掺元类F 
+};
+
+
+// 掺元类继承封装函数，其中参数Sub表示子类，参数Sup表示掺元类
+function extend(Sub,Sup){ 
+    for(m in Sup.prototype){	// 遍历掺元类的原型对象
+        if(!Sub.prototype[m]){	// 如果子类没有存在同名成员
+            Sub.prototype[m] = Sup.prototype[m]; // 则复制掺元类原型成员给子类原型对象
+        }
+    }
+}
+
+
+extend(A,F); 	// 继承F的子类A
+extend(B,F);	// 继承F的子类B
+
+var a = new A(1,2); 
+var b = new B(10,20);
+alert(a.getx());	//1
+alert(a.gety());	//2
+alert(b.getx());	//10
+alert(b.gety());	//20
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

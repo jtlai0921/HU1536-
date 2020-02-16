@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>与客户交互页面</title>
+<script language="javascript" type="text/javascript">
+function request(){			// 请求函数，加载服务器端页面
+    parent.frames[1].location.href = "serve.htm";  
+}
+window.onload = function(){	// 页面加载完毕，为按钮绑定事件处理函数
+    var b = document.getElementsByTagName("input")[0];
+    b.onclick = request;
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1>与客户交互页面</h1>
+<input name="submit" type="button" id="submit" value="向服务器发出请求" />
+</body>
+</html>

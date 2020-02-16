@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+var myObj;
+function process() {
+    var images = document.getElementsByTagName("img"), widget = document.getElementsByTagName("input"), combination = [];
+    for(var i = 0; i < images.length; i++) {
+        combination.push(combine(images[i], widget[2 * i]));
+    }
+    myObj.container.property1 = combination[0];
+    myObj.container.property2 = combination[combination.length - 1];
+} 
+
+
+
+
+var myObj;
+function process() {
+    var doc = document;
+    var images = doc.getElementsByTagName("img"), widget = doc.getElementsByTagName("input"), combination = [];
+    for(var i = 0; i < images.length; i++) {
+        combination.push(combine(images[i], widget[2 * i]));
+    }
+    myObj.container.property1 = combination[0];
+    myObj.container.property2 = combination[combination.length - 1];
+} 
+
+
+
+
+var myObj;
+function process() {
+    var doc = document;
+    var images = doc.getElementsByTagName("img"), widget = doc.getElementsByTagName("input"), combination = [];
+    for(var i = 0; i < images.length; i++) {
+        combination.push(combine(images[i], widget[2 * i]));
+    }
+    with(myObj.container) {
+        property1 = combination[0];
+        property2 = combination[combination.length - 1];
+    }
+} 
+
+
+
+
+var myObj;
+function process() {
+    var doc = document;
+    var images = doc.getElementsByTagName("img"), widget = doc.getElementsByTagName("input"), combination = [];
+    for(var i = 0; i < images.length; i++) {
+        combination.push(combine(images[i], widget[2 * i]));
+    }
+    myObj.container.property1 = combination[0];
+    myObj.container.property2 = combination[combination.length - 1];
+} 
+
+
+
+
+var myObj;
+function process() {
+    var doc = document;
+    var images = doc.getElementsByTagName("img"), widget = doc.getElementsByTagName("input"), combination = [];
+    for(var i = 0; i < images.length; i++) {
+        combination.push(combine(images[i], widget[2 * i]));
+    }
+    var ctn = myObj.container;
+    ctn.property1 = combination[0];
+    ctn.property2 = combination[combination.length - 1];
+} 
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+// 定义有效期
+var d = new Date();
+d.setMonth(d.getMonth() + 1);
+d = d.toGMTString();
+// 定义Cookie字符串
+var a = "name:a,age:20,addr:beijing" 
+var c = "user=" + escape(a) 
+c += ";" + "expires=" + d; 
+document.Cookie = c; // 写入Cookie信息
+
+
+
+// 读取所有Cookie信息，包括子Cookie信息
+// 参数：无
+// 返回值：对象，存储的是子Cookie信息，其中名称作为对象的属性而存在，而值作为属性值存在
+function getSubCookie(){
+    var a = document.Cookie.split(";");
+    var o ={};
+    for (var i = 0; i < a.length; i ++ ){ // 遍历Cookie信息数组
+        a[i] && (a[i] = a[i].replace(/^\s+|\s+$/, ""));
+        // 清除头部空格符
+        var b = a[i].split("=");
+        var c = b[1];
+        c && (c = c.replace(/^\s+|\s+$/, ""));// 清除头部空格符
+        c = unescape(c); // 解码Cookie值
+        if( ! /\,/gi.test(c)){
+            o[b[0]] = b[1];
+        }
+        else{
+            var d = c.split(",");
+            for (var j = 0; j < d.length; j ++ ){ 	// 遍历子Cookie数组
+                var e = d[j].split(":");
+                o[e[0]] = e[1]; // 把子Cookie信息写入返回对象
+            }
+        }
+    }
+    return o; // 返回包含Cookie信息的对象
+}
+
+
+
+if(navigator.CookieEnabled){ // 如果存在CookieEnabled属性，则说明浏览器支持Cookie，可以安全写入或读取Cookie信息了
+    setCookie();
+    // 或
+    getCookie();
+}
+
+
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>

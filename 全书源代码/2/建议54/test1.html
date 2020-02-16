@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function f( a, b ){ 
+    return ( a - b ) 
+}
+var a = [3, 1, 2, 4, 5, 7, 6, 8, 0, 9]; 	// 定义数组
+a.sort(f); 
+alert( a ); 	//[0,1,2 ,3,4, 5,6,7 ,8,9]
+
+function f( a, b ){ 
+    return  -( a - b ) 
+}
+var a = [3, 1, 2, 4, 5, 7, 6, 8, 0, 9]; 
+a.sort(f); 
+alert( a ); 	//[9,8,7 ,6,5, 4,3,2 ,1,0]
+
+//根据奇偶性质排列数组
+function f( a, b ){ 
+    var a = a % 2; 
+    var b = b % 2; 
+    if( a == 0 ) return 1; 
+    if( b == 0 ) return -1; 
+}
+var a = [3, 1, 2, 4, 5, 7, 6, 8, 0, 9]; 
+a.sort( f ); 
+alert( a ); 	//[3,1,5,7,9,0,8,6,4,2]
+
+function f( a, b ){
+    var a = a % 2;
+    var b = b % 2;
+    if( a  == 0 ) return -1;
+    if( b  == 0 ) return 1;
+}
+
+//不区分大小写排序字符串
+var a = ["aB", "Ab", "Ba", "bA"];
+a.sort();
+alert( a ); 	//["Ab","Ba","aB","bA"]
+function f( a, b ){ 
+    return ( a < b );
+}
+var a = ["aB", "Ab", "Ba", "bA"];
+a.sort( f ); 
+alert( a ); 	//["Ab","Ba","aB","bA"]
+function f( a, b ){ 
+    var a = a.toLowerCase;
+    var b = b.toLowerCase; 
+    if( a < b ){ 
+        return  1;
+    }
+    else{
+        return -1;
+    }
+}
+var a = ["aB", "Ab", "Ba", "bA"];	// 定义数组
+a.sort( f ); 
+alert( a ); 	//["aB", "Ab", "Ba", "bA"]
+
+//把浮点数和整数分开排列
+function f( a, b ){ 
+    if( a > Math.floor( a ) ) return  1; 
+    if( b > Math.floor( b ) ) return  - 1; 
+}
+var a = [3.55555, 1.23456, 3, 2.11111, 5, 7, 3];
+a.sort( f ); 
+alert( a ); 	//[3,5,7,3,2.11111,1.23456,3.55555]
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

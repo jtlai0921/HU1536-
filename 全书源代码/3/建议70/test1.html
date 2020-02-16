@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+//惰性实例化的变体
+var myNamespace2 = function() {
+    var Configure = function() {
+        var privateName = "someone's name";
+        var privateReturnName = function() {
+            return privateName;
+        }
+        var privateSetName = function(name) {
+            privateName = name;
+        }
+        //返回单例对象
+        return {
+            setName : function(name) {
+                privateSetName(name);
+            },
+            getName : function() {
+                return privateReturnName();
+            }
+        }
+    }
+    //储存configure的实例
+    var instance;
+    return {
+        init : function() {
+            //如果不存在实例，就创建单例实例
+            if(!instance) {
+                instance = Configure();
+            }
+            //创建Configure单例
+            for(var key in instance) {
+                if(instance.hasOwnProperty(key)) {
+                    this[key] = instance[key];
+                }
+            }
+            this.init = null;
+            return this;
+        }
+    }
+}();
+//使用方式：
+myNamespace2.init();
+myNamespace2.getName();
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

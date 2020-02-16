@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+var Card = function( name, sex, work, detail ){	// 安全的类
+    var _name = name, _sex = sex, _work = work, _detail = detail; 	// 私有属性
+    function _checkName( _name ){	// 私有方法
+    }
+    function _checkSex( _sex ){	// 私有方法
+    }
+    function _checkWork( _work ){	// 私有方法
+    }
+    function _checkDetail( _detail ){	// 私有方法
+    } 
+    if( ! _checkName( _name ) ) throw new Error( "name值非法" ){
+        this.name = _name;
+    }
+    this.sex = _checkSex( _sex ); 
+    this.work = _checkWork( _work ); 
+    this.detail = _checkDetail( _detail ); 
+}
+Card.prototype = {
+    // 公共方法
+}
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

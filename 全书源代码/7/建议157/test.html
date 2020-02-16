@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+// 封装Cookie存取功能，可以写入Cookie信息，读取Cookie信息，也可以删除Cookie信息
+// 参数：name表示Cookie的名称，value表示Cookie值，都以字符串形式传递。Option参数是一个对象，该对象可以包含多项信息，用来指定Cookie信息的有效期、路径、作用域和完全性设置
+// 返回值：当仅有一个参数时，该函数获读取并返回Cookie值
+function Cookie(name, value, options){
+    if (typeof value != 'undefined'){ // 如果第二个参数存在
+        options = options ||{};
+        if (value === null){
+            options.expires = - 1;// 设置失效时间
+        }
+        var expires = '';
+        // 如果存在时间参数项，并且类型为number，或者具体时间，那么分别设置时间
+        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+            var date;
+            if (typeof options.expires == 'number'){ 
+                date = new Date();
+                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+            }
+            else{
+                date = options.expires; 
+            }
+            expires = '; expires=' + date.toUTCString();
+         }
+        var path = options.path ? '; path=' + options.path : '';  // 设置路径
+        var domain = options.domain ? '; domain=' + options.domain : ''; // 设置域
+        var secure = options.secure ? '; secure' : ''; // 设置安全措施，为true则直接设置，否则为空
+        // 把所有字符串信息都存入数组，然后调用join()方法转换为字符串，并写入Cookie信息
+        document.Cookie = [name,'=',encodeURIComponent(value),expires,path,domain,secure].join('');
+    }
+    else{ // 如果第二个参数不存在，则表示读取指定Cookie信息
+        var CookieValue = null;
+        if (document.Cookie && document.Cookie != ''){ 
+            var Cookie = document.Cookie.split(';'); 
+            for (var i = 0; i < Cookies.length; i ++ ){
+                var Cookie = (Cookies[i] || "").replace( /^\s+|\s+$/g, "" ); 
+                if (Cookie.substring(0, name.length + 1) == (name + '=')){ 
+                    CookieValue = decodeURIComponent(Cookie.substring
+                         (name.length + 1));
+                    break;
+                }
+            }
+        }
+        return CookieValue; // 返回查找的Cookie值
+    }
+}
+
+
+
+Cookie("user", "baidu");// 简单写入一条Cookie信息
+Cookie("user", " baidu ", {// 写入一条Cookie信息，并设置更多选项
+                    expires:10, 		// 有效期为10天
+                    path:"/", 		// 整个站点有效
+                    domain:"www.css8.cn",	// 有效域名
+                    secure:true		// 加密数据传输
+});
+
+Cookie("user")
+
+Cookie("user",null);
+
+
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>

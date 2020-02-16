@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+var book = { 
+    title: "Javascript",
+    publisher: "机械工业出版社"
+};
+alert(book.toString()); //"[object Object]"
+
+
+var book = {
+    title: "Javascript",
+    publisher: "机械工业出版社"
+};
+alert(book.hasOwnProperty("title"));	//true
+alert(book.hasOwnProperty("toString"));	//false
+alert("title" in book);//true
+alert("toString" in book);//true
+
+
+
+function Book(title, publisher) {
+    this.title = title;
+    this.publisher = publisher;
+}
+Book.prototype.sayTitle = function() {
+    alert(this.title);
+};
+var book1 = new Book("CSS", "电子");
+var book2 = new Book("HTML", "清华");
+alert( book1 instanceof Book);    //true
+alert( book1 instanceof Object);    //true
+book1.sayTitle();    //" CSS "
+alert(book1.toString());    //"[object Object]"
+
+
+
+function hasEitherClass(element, className1, className2){ 
+    return element.className == className1 || element.className == className2;
+}
+
+function hasEitherClass(element, className1, className2){
+    var currentClassName = element.className;
+    return currentClassName == className1 || currentClassName == className2;
+}
+
+
+
+function toggle(element){
+    if (YAHOO.util.Dom.hasClass(element, "selected")){
+        YAHOO.util.Dom.removeClass(element, "selected");
+        return false;
+    } else {
+        YAHOO.util.Dom.addClass(element, "selected");
+        return true;
+    }
+}
+
+
+
+function toggle(element){
+    var Dom = YAHOO.util.Dom;
+    if (Dom.hasClass(element, "selected")){
+        Dom.removeClass(element, "selected");
+        return false;
+    } else {
+        Dom.addClass(element, "selected");
+        return true;
+    }
+}
+
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>

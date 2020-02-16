@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+//方法1
+var reference = {}, props = "p1"; 
+eval("reference." + props + "=5") 
+//方法2
+var reference = {}, props = "p1"; 
+reference[props] = 5 
+
+
+
+//方法1
+var func1 = new Function("return arguments[0] + arguments[1]");
+func1(10, 20); 
+//方法2 
+var func2 = function() {
+    return arguments[0] + arguments[1]
+};
+func2(10, 20); 
+
+
+
+str += "str1" + "str2"
+
+var str_array = []; 
+str_array.push("str1"); 
+str_array.push("str2"); 
+str = str_array.join("");
+
+
+var str = "12345678", arr = [];
+for(var i = 0; i <= s.length; i++) { 
+    arr.push(str.charAt(i));
+} 
+
+var str = new Stirng("12345678"), arr = [];
+for(var i = 0; i <= s.length; i++) { 
+    arr.push(str.charAt(i));
+} 
+
+
+
+
+for(var i = 0; i <= str_array.length; i++) {
+    if(str_array[i].match(/^s*extra\s/)) {
+        //…
+    }
+} 
+
+
+
+var sExpr = /^s*extra\s/;
+for(var i = 0; i <= str_array.length; i++) {
+    if(str_array[i].match(sExpr)) {
+        //…
+    }
+} 
+
+
+
+//代码1
+if(source.match()){
+
+}
+//代码2
+if(name.indexOf( ) && source.match()){
+
+}
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

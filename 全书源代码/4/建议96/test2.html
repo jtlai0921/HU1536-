@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+Function.prototype.clone = function(o){ 	// 对象克隆方法
+    function Temp(){};	// 新建空构造函数
+    Temp.prototype = o;	// 把参数对象赋值给该构造函数的原型对象
+    return new Temp();	//实例化后的对象
+}
+var o = Function.clone(new F(2,3));	// 调用Function对象的克隆方法
+alert(o.x); 	//2
+alert(o.y);	//3
+alert(o.add());	//5
+alert(o.mul());	//6
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

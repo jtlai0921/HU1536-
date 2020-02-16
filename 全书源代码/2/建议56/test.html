@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function sayHello() {
+    switch (arguments.length) {
+        case 0:
+            return "Hello";
+        case 1:
+            return "Hello, " + arguments[0];
+        case 2:
+            return (arguments[1] == "cn" ? " 你好，" : "Hello, ") + arguments[0];
+    };
+}
+sayHello();//"Hello"
+sayHello("Alex");// "Hello, Alex"
+sayHello("Alex", "cn");	// " 你好，Alex"
+
+
+function fibonacci(num) {
+    return (function(num) {
+        if( typeof num !== "number")
+            return -1;
+        num = parseInt(num);
+        if(num < 1)
+            return -1;
+        if(num == 1 || num == 2)
+            return 1;
+        return arguments.callee(num - 1) + arguments.callee(num - 2);
+    })(num);
+}
+fibonacci(100);
+
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

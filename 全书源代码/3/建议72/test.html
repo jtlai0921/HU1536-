@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var addEvent = function(el, type, handle) {
+    addEvent = el.addEventListener ? function(el, type, handle) {
+        el.addEventListener(type, handle, false);
+    } : function(el, type, handle) {
+        el.attachEvent("on" + type, handle);
+    };
+    //在第一次执行addEvent函数时，修改了addEvent函数之后，必须执行一次。
+    addEvent(el, type, handle);
+}
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

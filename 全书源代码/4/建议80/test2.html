@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function p(x,y){ 	// 求坐标点构造函数
+    if(x) this.x =x; 	// 初始x轴值
+    if(y) this.y = y; 	// 初始y轴值
+    p.prototype.x =0; 	// 默认x轴值
+    p.prototype.y = 0; 	// 默认y轴值
+}
+function l(a,b){ 	// 求两点间距离的构造函数
+    var a = a; 
+    var b = b; 
+    var w = function(){	// 计算x轴距离，返回对函数引用
+        return Math.abs(a.x - b.x);
+    }
+    var h = function(){	// 计算y轴距离，返回对函数引用
+        return Math.abs(a.y - b.y);
+    }
+    this.length = function(){// 计算两点间距离，使用小括号调用私有方法w()和h()
+        return Math.sqrt(w()*w() + h()*h());
+    }
+    this.b = function(){	// 获取起点坐标对象
+        return a;
+    }
+    this.e = function(){	// 获取终点坐标对象
+        return b;
+    }
+}
+var p1 = new p(1,2); 	//声明一个点
+var p2 = new p(10,20); 	//声明另一个点
+var l1 = new l(p1,p2); 	//实例化构造函数，传递两点对象
+alert(l1.length());	//20.12461179749811，调用length()方法计算两点间距离
+l1.b().x = 50;	//不经意改动方法b()的一个属性为50
+alert(l1.length());	//43.86342439892262，说明上面改动影响到两点间距离
+
+
+
+this.b = function(){	// 方法b()
+    function temp(){};	// 临时构造类
+    temp.prototype = a; 	// 把私有对象传递给临时构造类的原型对象
+    return new temp();	// 实例化后的对象，阻断直接返回a所出现的引用关系
+}
+this.e = function(){	// 方法f()
+    function temp(){};	// 临时构造类
+    temp.prototype = a; 	// 把私有对象传递给临时构造类的原型对象
+    return new temp();	// 实例化后的对象，阻断直接返回a所出现的引用关系
+}
+
+
+
+</script>
+</head>
+<body>
+
+
+
+
+</body>
+</html>

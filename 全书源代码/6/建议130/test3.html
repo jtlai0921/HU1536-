@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var div1 = document.getElementsByTagName("div")[0]; 
+var w1 = parseInt(getStyle(div1, "width"));
+var div2 = document.getElementsByTagName("div")[1];
+var w2 = parseInt(getStyle(div2, "width"))/100;
+var div3 = document.getElementsByTagName("div")[2];
+var w3 = parseInt(getStyle(div3, "width"))/100;
+var div4 = document.getElementsByTagName("div")[3];
+var w4 = parseInt(getStyle(div4, "width"))/100;
+var w = w1*w2*w3*w4; 	// 返回数值25
+
+
+</script>
+</head>
+<body>
+<div style="width:200px;">
+    <div style="width:50%;">
+        <div style="width:50%;">
+            <div style="width:50%;">
+                <div id="div" style="border-style:solid;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

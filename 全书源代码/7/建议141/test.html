@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var url = '/data.php';
+var params = ['id=934875', 'limit=20'];
+var req = new XMLHttpRequest();
+req.onreadystatechange = function() {
+    if(req.readyState === 4) {
+        var responseHeaders = req.getAllResponseHeaders();
+        var data = req.responseText;
+    }
+}
+req.open('GET', url + '?' + params.join('&'), true);
+req.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+req.send(null);
+
+
+
+
+req.onreadystatechange = function() {
+    if(req.readyState === 3) {// Some, but not all, data has been received.
+        var dataSoFar = req.responseText;
+    } else if(req.readyState === 4) {// All data has been received.
+        var data = req.responseText;
+    }
+}
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

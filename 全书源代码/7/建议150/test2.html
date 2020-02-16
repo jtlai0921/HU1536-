@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function caculateDistance(source,dest) {
+    if (! isNaN(source) || ! isNan(dest)) {
+        dojo.byId("errors").innerHTML = "提示错误";
+    }
+}
+
+
+function calculateDistance(source,dest) {
+    try {
+        // 执行计算...
+    } catch (error) {
+        dojo.byId("errors").innerHTML = "提示错误";
+    }
+}
+
+
+var args = {
+    url: "/ js/dojo//NoSuchFile",
+    handleAs: "text",
+    preventCache: true,
+    load: function(data) {
+        //当加载成功时，执行计算
+    },
+    error: function(error) {
+        dojo.byId("errors").innerHTML = "提示错误";
+    }
+}
+var ajx = dojo.xhrGet(args);
+
+
+
+
+function calculateDistance(source, dest) {
+    try {
+        // 执行计算
+    } catch (error) {
+        //不要:
+        // alert(error.message);
+        //最好:
+        dojo.byId("errors").innerHTML = "提示错误";
+    }
+}
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

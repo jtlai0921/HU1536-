@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+var s = "Javascript,not Javascript";
+var r = /(Java)Script/gi;
+var a = r.exec(s); 
+alert(RegExp.input); 	//"Javascript,not Javascript"
+alert(RegExp.leftContext); 	//空字符串，因为在第一次匹配操作时，左侧没有内容
+alert(RegExp.rightContext); 	//",not Javascript"
+alert(RegExp.lastMatch); 	//"Javascript "
+alert(RegExp.lastParen); 	//"Java"
+
+
+var r = /(Java)(Script)/gi;
+var a = r.exec(s); 	//执行匹配操作
+alert(RegExp.lastParen);	//返回"Script"，而不再是"Java"
+
+
+var s = "Javascript,not Javascript";
+var r = /(Java)(Script)/gi;
+var a = r.exec(s);
+alert(RegExp.$_); 	//"Javascript,not Javascript"
+alert(RegExp["$`"]);	//空字符串
+alert(RegExp["$'"]);	//",not Javascript"
+alert(RegExp["$&"]);	//"Javascript "
+alert(RegExp["$+"]);	//"Java"
+
+
+var s = "Javascript,not Javascript";
+var r = /Scrip(t)/gi; 	// 第一次定义的匹配模式
+var a = r.exec(s); 	// 执行第一次匹配
+alert(RegExp.$_); 	//"Javascript,not Javascript"
+alert(RegExp["$`"]);	//"Java"
+alert(RegExp["$'"]);	//",not Javascript"
+alert(RegExp["$&"]);	//"Script"
+alert(RegExp["$+"]);	//"t"
+var r = /Jav(a)/gi; 	// 第二次定义的匹配模式
+var a = r.exec(s); 	// 执行第二次匹配
+alert(RegExp.$_); 	//"Javascript,not Javascript"
+alert(RegExp["$`"]);	//空字符串
+alert(RegExp["$'"]); 	//"Script,not Javascript"
+alert(RegExp["$&"]);	//"Java"
+alert(RegExp["$+"]);	//"a"
+
+
+var s = "a\nb\nc";
+var r = /\w+$/g; 	// 定义匹配模式
+var a = s.match(r); 	// 执行默认匹配，返回数组["c"]
+RegExp.multiline = true; 	// 动态设置模式为多行匹配
+var a = s.match(r); 	//["a", "b", "c"] 
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

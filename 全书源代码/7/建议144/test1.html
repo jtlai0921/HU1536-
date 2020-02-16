@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function parseJSON(responseText) {
+    var users = [];
+    var usersArray = ('(' + responseText + ')');
+    for(var i = 0, len = usersArray.length; i < len; i++) {
+        users[i] = {
+            id : usersArray[i][0],
+            username : usersArray[i][1],
+            realname : usersArray[i][2],
+            email : usersArray[i][3]
+        };
+    }
+    return users;
+}
+
+
+
+parseJSON([{
+    "id" : 1,
+    "username" : "alice",
+    "realname" : "Alice ",
+    "email" : "alice@163.com"
+}, {
+    "id" : 2,
+    "username" : "bob",
+    "realname" : "Bob ",
+    "email" : "bob@163.com"
+}, {
+    "id" : 3,
+    "username" : "carol",
+    "realname" : "Carol",
+    "email" : "carol@163.com"
+}, {
+    "id" : 4,
+    "username" : "dave",
+    "realname" : "Dave ",
+    "email" : "dave@163.com"
+}]);
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

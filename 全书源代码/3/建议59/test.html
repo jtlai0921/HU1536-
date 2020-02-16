@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function max(){
+    var m = Number.NEGATIVE_INFINITY;	// 声明一个负无穷大的数值
+    for( var i = 0; i < arguments.length; i ++ ){
+        if( arguments[i] > m )
+        m = arguments[i]; 
+    }
+    return m; 
+}
+var a = [23, 45, 2, 46, 62, 45, 56, 63];
+var m = max.apply( Object, a ); 
+alert( m );	//63
+
+
+var a = [23, 45, 2, 46, 62, 45, 56, 63];	// 声明并初始化数组
+var m = Math.max.apply( Object, a ); 	// 调用系统函数max
+alert( m ); 	//63
+
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

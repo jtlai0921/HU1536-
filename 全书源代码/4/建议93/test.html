@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function A(x){	// 构造函数A
+    this.x = x; 
+    this.say = function(){
+        alert(this.x);
+    }
+}
+function B(x,y){	// 构造函数B
+    this.m = A; 	// 把构造函数A作为一个普通函数引用给临时方法m()
+    this.m(x); 	// 把当前构造函数参数x作为值传递给构造函数A，并执行
+    delete this.m; 	// 清除临时方法
+    this.y = y;
+    this.call = function(){
+        alert(this.y);
+    }
+}
+var a = new A(1); 
+var b = new B(2,3); 
+a.say();	// 调用实例化A的方法say()，返回1
+b.say();	// 在B类中调用A类的方法say()，返回2，说明继承成功
+b.call();	// 调用实例化B的方法call()，返回3
+
+
+
+function A(x){ 	// 构造函数A
+    this.x = x; 
+}
+A.prototype.getx = function(){
+    return this.x;
+}
+
+var a1 = new A(1); 
+
+alert(a1.x); 	// 继承类A的属性x
+alert(a1.getx());	// 引用类A的方法getx()
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

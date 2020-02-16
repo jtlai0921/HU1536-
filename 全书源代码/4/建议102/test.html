@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function O(x){	// 享元类
+    return function(){	//类
+        this.x = x;
+        this.get = function(){
+            alert(this.x);
+        }
+    }
+}
+var o = new O(1); 
+var f = new o();
+f.get();	// 调用返回类的方法get()，返回1
+
+
+var O = new Function("this.x=1;this.y=2")	// 实例化之后返回的是类
+var o = new O();	// 实例化返回类
+alert(o.x); 	// 调用实例的属性值，返回1
+
+		 
+</script>
+</head>
+<body>
+
+</body>
+</html>

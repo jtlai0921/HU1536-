@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+//较慢方法
+function collectionGlobal() {
+    var coll = document.getElementsByTagName_r('div'), len = coll.length, name = '';
+    for(var count = 0; count < len; count++) {
+        name = document.getElementsByTagName_r('div')[count].nodeName;
+        name = document.getElementsByTagName_r('div')[count].nodeType;
+        name = document.getElementsByTagName_r('div')[count].tagName;
+    }
+    return name;
+};
+// 较快方法
+function collectionLocal() {
+    var coll = document.getElementsByTagName_r('div'), len = coll.length, name = '';
+    for(var count = 0; count < len; count++) {
+        name = coll[count].nodeName;
+        name = coll[count].nodeType;
+        name = coll[count].tagName;
+    }
+    return name;
+};
+// 最快方法
+function collectionNodesLocal() {
+    var coll = document.getElementsByTagName_r('div'), len = coll.length, name = '', el = null;
+    for(var count = 0; count < len; count++) {
+        el = coll[count];
+        name = el.nodeName;
+        name = el.nodeType;
+        name = el.tagName;
+    }
+    return name;
+};
+
+		 
+</script>
+</head>
+<body>
+
+</body>
+</html>

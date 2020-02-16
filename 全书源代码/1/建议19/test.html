@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function F(){
+    this.x = 1; 
+    return { y : 2 };
+}
+var f = new F();
+f.y; 	// 2
+
+
+
+function F(){
+    this.x = 1; 
+    return true;
+}
+var f = new F();
+f.x; 	// 1
+F();	// true
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

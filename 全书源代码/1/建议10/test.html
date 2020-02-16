@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var i, word;
+var text = "A number of W3C staff will be on hand to discuss HTML5, CSS, and other technologies of the Open Web Platform.";
+var words = text.toLowerCase().split(/[\s,.]+/);
+var count = {};
+for( i = 0; i < words.length; i += 1) {
+    word = words[i];
+    if(count[word]) {
+        count[word] += 1;
+    } else {
+        count[word] = 1;
+    }
+}
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

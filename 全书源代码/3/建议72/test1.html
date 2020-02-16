@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+function createXHR() {
+    if( typeof XMLHttpRequest != 'undefined') {
+        return new XMLHttpRequest();
+    } else if( typeof ActiveXObject != 'undefined') {
+        if( typeof arguments.callee.activeXString != 'string') { ver
+            versions = ["MSXML2.XMLHttp", "MSXML2.XMLHttp.3.0", "MSXML2.XMLHttp.6.0"];
+            for(var i = 0, len = versions.length; i < len; i++) {
+                try {
+                    var xhr = new ActiveXObject(versions[i]);
+                    arguments.callee.activeXString = versions[i];
+                    return xhr;
+                } catch(ex) {
+                    //跳过
+                }
+            }
+        }
+        return new ActiveXObject(arguments.callee.activeXString);
+    } else {
+        throw new Error("No XHR object available.");
+    }
+}
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

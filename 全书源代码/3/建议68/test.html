@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+getElement('box'). 
+    move(350, 150).
+    width(100).height(100).
+    color('red').
+    border('10px outset').
+    padding('4px').
+    appendText("使用链式语法")
+
+
+Function.prototype.method = function(name, func) {
+    if(!this.prototype[name]) {
+        this.prototype[name] = func;
+        return this;
+    }
+};
+String.method('trim', function() {
+    return this.replace(/^\s+|\s+$/g, '');
+});
+String.method('writeln', function() {
+    document.writeln(this); 
+    return this;
+});
+String.method('alert', function() {
+    window.alert(this); 
+    return this;
+});
+var str = " abc  ";
+str.trim().writeln().alert();
+
+</script>
+</head>
+<body>
+</body>
+</html>

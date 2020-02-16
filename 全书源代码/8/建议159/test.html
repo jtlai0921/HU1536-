@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var isWin = (navigator.userAgent.indexOf("Win") != -1);
+var isMac = (navigator.userAgent.indexOf("Mac") != -1);
+var isUnix = (navigator.userAgent.indexOf("X11") != -1);
+
+function rollover(imgName, imgSrc) {
+    if(document.images) {
+        // statements go here
+    }
+}
+
+
+function getImgAreas() {
+    var result = 0;
+    for(var i = 0; i < document.images.length; i++) {
+        result += (document.images[i].width * document.images[i].height);
+    }
+    return result;
+}
+function reportImageArea() {
+    document.form1.imgData.value = getImgAreas();
+}
+
+
+
+function getImgAreas(){
+    var result;
+    if (document.images){
+        result = 0;
+        for (var i = 0; i < document.images.length; i++){
+            result += (document.images[i].width * document.images[i].height);
+        }
+        return result;
+    }
+}
+function reportImageArea(){
+    var imgArea = getImgAreas();
+    var output;
+    if (imgArea == null){
+        output = "Unknown";
+    } else {
+        output = imgArea;
+    }
+    document.reportForm.imgData.value = output;
+}
+
+
+
+if(objectTest && objectPropertyTest) {
+    // OK to work with property
+}
+
+if(objectReference && typeof (objectReference.propertyName) != "undefined") {
+    // OK to work with property
+}
+
+
+function myFunction() {
+    if(document.getElementById) {
+        // 这里可以使用getElementById方法
+    }
+}
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

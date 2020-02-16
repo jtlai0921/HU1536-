@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+if(document.evaluate){
+    var tblHeaders = document.evaluate("//body/div/table//th");
+    var result = tblHeaders.iterateNext();
+    while(result){
+        result.style.border = "1px dotted blue";
+        result = xpathResult.iterateNext();
+    
+    } 
+	} 
+	else{ //getElementsByTagName()
+        // 处理浏览器不支持 XPath 的情况
+    } 
+
+
+
+
+if(needXHR){
+    document.write("<script type= ’ test\/Javascript ’ src= 'dojo_xhr.js' >"); 
+} 
+if(dojo.isIE){ 
+    document.write("<script type= ’ test\/Javascript ’ src= 'vml.js' >"); 
+} 
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

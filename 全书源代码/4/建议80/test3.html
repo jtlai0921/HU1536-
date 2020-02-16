@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function l(a,b){ 	// 求两点间距离的构造函数
+    var a = a; 
+    var b = b; 
+    var w = function(){	// 计算x轴距离，返回函数表达式的计算值
+        return Math.abs(a.x - b.x);
+    }()
+    var h = function(){	// 计算y轴距离，返回函数表达式的计算值
+        return Math.abs(a.y - b.y);
+    }()
+    this.length = function(){	// 计算两点间距离，直接使用私有变量w和h来计算
+        return Math.sqrt(w()*w() + h()*h());
+    }
+    this.b = function(){	// 获取起点坐标对象
+        return a;
+    }
+    this.e = function(){	// 获取终点坐标对象
+        return b;
+    }
+}
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var Card = function( name, sex, work, detail ){	// 较安全的公共类
+    if( ! checkName( name ) ) throw new Error( "name值非法" ){
+        this.name = name;
+    }
+    this.sex = checkSex( sex );
+    this.work = checkWork( work );
+    this.detail = checkDetail( detail );
+}
+Card.prototype = { 	// 类内部数据检测方法
+    checkName : function( name ){ //检测name，参数为name，返回布尔值，检测是否合法
+    }
+    checkSex : function( sex ){ //检测sex，参数为sex，返回sex，检测是否符合约定
+    }
+    checkWork : function( work ){ //检测work，参数为work，返回work，检测是否符合约定
+    }
+    checkDetail : function( detail ){ //检测detail，参数为detail，返回detail，检测是否符合约定
+    }
+}
+
+		 
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var alldivs = document.getElementsByTagName_r('div');
+for(var i = 0; i < alldivs.length; i++) { 
+    document.body.appendChild(document.createElement('div'))
+}
+
+
+
+
+function toArray(coll) {
+    for(var i = 0, a = [], len = coll.length; i < len; i++) {
+        a[i] = coll[i];
+    }
+    return a;
+}
+
+var coll = document.getElementsByTagName_r('div');
+var ar = toArray(coll);
+
+//比较慢
+function loopCollection() {
+    for (var count = 0; count < coll.length; count++) {
+    }
+}
+// 比较快
+function loopCopiedArray() {
+    for (var count = 0; count < arr.length; count++) {
+    }
+}
+
+function loopCacheLengthCollection() {
+    var coll = document.getElementsByTagName_r('div'),
+    len = coll.length;
+    for (var count = 0; count < len; count++) {
+    }
+}
+		 
+</script>
+</head>
+<body>
+
+</body>
+</html>

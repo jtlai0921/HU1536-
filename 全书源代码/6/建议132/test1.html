@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+</script>
+</head>
+<body>
+<div id="div" style="height:200px;width:200px;border:solid 50px 
+red;overflow:auto;padding:50px;">
+    <div id="info" style="height:400px;width:400px;
+border:solid 1px blue;"></div>
+</div>
+
+<script language="javascript" type="text/javascript">
+var div = document.getElementById("div");
+var ho = div.offsetHeight; 		// 返回400
+var hs = div.scrollHeight; 		// 返回502
+var hc = div.clientHeight; 		// 返回283
+var hg = getH(div);		// 返回400
+
+
+
+
+</script>
+
+</body>
+</html>

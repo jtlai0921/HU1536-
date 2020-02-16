@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+if(window.ActiveXObject){ 
+    document.write("<script id=ie_onload defer src=javascript:void(0)><\/script>");	
+    document.getElementById("ie_onload").onreadystatechange=function(){
+        if(this.readyState == "complete"){
+            this.onreadystatechange = null; 
+            f();
+        }
+    }
+}
+
+
+if (/WebKit/i.test(navigator.userAgent)){ 
+    var _timer = setInterval(function(){
+        if (/loaded|complete/.test(document.readyState)) {
+            clearInterval(_timer); 
+            f();	
+        }
+    }, 10);
+}
+
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>

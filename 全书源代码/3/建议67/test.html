@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var add = function(n){ 
+    return function(m){
+        return n+m;
+    }
+}
+document.writeln(add(2)(3)); //5
+
+
+
+Function.prototype.method = function(name, func) {
+    if(!this.prototype[name]) {
+        this.prototype[name] = func;
+        return this;
+    }
+};
+Function.method('curry', function() {
+    var slice = Array.prototype.slice;
+    var args = slice.apply(arguments), that = this;
+    return function() {
+        return that.apply(null, args.concat(slice.apply(arguments)));
+    };
+});
+
+
+
+var add = function() {
+    var i, sum = 0;
+    for( i = 0; i < arguments.length; i += 1) {
+        sum += arguments[i];
+    }
+    return sum;
+};
+var add1 = add.curry(2);
+document.writeln(add1(3)); 	// 7 
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function isPrime(n) { 
+    if (n == 0 || n == 1) { 
+        return false; 
+    } 
+    var bound = Math.floor(Math.sqrt(n)); 
+    for (var i = 2; i <= bound; i++) { 
+       if (n % i == 0) { 
+           return false; 
+       } 
+    } 
+    return true; 
+ } 
+
+ function calculateNormal() { 
+    var count = 0; 
+    for (var i = 2; i <= MAX; i++) { 
+        if (isPrime(i)) { 
+            count++; 
+        } 
+    } 
+    alert("计算完成，质数个数为：" + count); 
+ } 
+
+
+
+function calculateUsingTimeout() { 
+    var jobs = 10, numberPerJob = Math.ceil(MAX / jobs); 
+    var count = 0; 
+    function calculate(start, end) { 
+        for (var i = start; i <= end; i++) { 
+            if (isPrime(i)) { 
+                count++; 
+            } 
+        } 
+    } 
+    var start, end, timeout, finished = 0; 
+    function manage() { 
+        if (finished == jobs) { 
+            window.clearTimeout(timeout); 
+            alert("计算完成，质数个数为：" + count); 
+        } 
+        else { 
+            start = finished * numberPerJob + 1, 
+                end = Math.min((finished + 1) * numberPerJob, MAX); 
+            timeout = window.setTimeout(function() { 
+                calculate(start, end); 
+                finished++; 
+                manage(); 
+            }, 100); 
+        } 
+    } 
+    manage(); 
+ } 
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function B(x,y){ 	// 构造函数B
+    this.y = y; 
+    A.call(this,x); 	// 在构造函数B中调用超类A，实现绑定
+}
+B.prototype = new A(); 	// 设置原型链，建立继承关系
+B.prototype.constructor = B; 	// 恢复B的原型对象的构造函数为B
+B.prototype.gety = function(){
+    return this.y;
+}
+var f2 = new B(10,20); 
+alert(f2.getx());	//10
+alert(f2.gety());	//20
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

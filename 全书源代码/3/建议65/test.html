@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var a = 2; 
+function f(x){ 
+    return x; 
+}
+alert(f(a,a=a*a)); 	//2
+alert(f(a)); 	//4
+
+
+var t; 
+function f(){
+    t = t ? t : new Date();
+    return t;
+}
+f();	// 调用函数
+
+
+var f =(function(){
+    var t;
+    return function(){
+        t = t ? t : new Date();
+        return t;
+    }
+})();
+f();
+
+
+var f = function() {
+    var t = new Date();
+    f = function() {
+        return t;
+    }
+    return f();
+};
+f();
+
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

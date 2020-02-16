@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+bodystyle.color = 'red';
+bodystyle.color = 'white';
+bodystyle.color = 'green';
+tmp = computed.backgroundColor;
+tmp = computed.backgroundImage;
+tmp = computed.backgroundAttachment;
+
+var el = document.getElementById('mydiv');
+el.style.borderLeft = '1px';
+el.style.borderRight = '2px';
+el.style.padding = '5px';
+
+
+var el = document.getElementById('mydiv');
+el.style.cssText = 'border-left: 1px; border-right: 2px; padding: 5px;';
+
+el.style.cssText += '; border-left: 1px;';
+
+var el = document.getElementById('mydiv');
+el.className = 'active';
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

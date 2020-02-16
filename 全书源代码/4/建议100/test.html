@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var F = (function(){
+    var _a = 1; 	//私有变量
+    this.a = _a; 	//公共属性
+    this.get1 =function(){	//公共方法
+        return _a;
+    };
+    this.set1 = function(x){ 	//公共方法
+        _a = x;
+    };
+    return function(){	//构造函数类
+       this.get2 =function(){	//提供访问私有变量的接口
+           return _a;
+       };
+       this.set2 = function(x){	//提供修改私有变量的接口
+           _a = x;
+        };
+    } 
+})(); 
+// 定义类的静态公共方法和属性
+F.get3 =function(){
+    return get1();
+};
+F.set3 = function(x){ 
+     set1(x);
+}
+
+		 
+</script>
+</head>
+<body>
+
+</body>
+</html>

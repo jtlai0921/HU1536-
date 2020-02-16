@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var Card = function(){	// 超类
+    var _name = 1; 
+    function _checkName(){
+        return _name;
+    }
+    this.checkName = function(){
+        return _name;
+    }
+}
+function F(){	// 子类
+    Card.call(this);	// 继承类Card
+    this.name =  _name;
+}
+var a = new F();
+alert(a.name); 	// 访问无效
+alert(a._checkName());	// 无法访问，抛出解析错误
+
+alert(a.checkName());	// 访问超类公共方法，间接访问私有属性和方法
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

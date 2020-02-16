@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+var data = [{
+    "name" : "链接3",
+    "url" : "#"
+}, {
+    "name" : "链接4",
+    "url" : "#"
+}];
+
+function appendDataToElement(appendToElement, data) {
+    var a, li;
+    for(var i = 0, max = data.length; i < max; i++) {
+        a = document.createElement('a');
+        a.href = data[i].url;
+        a.appendChild(document.createTextNode(data[i].name));
+        li = document.createElement('li');
+        li.appendChild(a);
+        appendToElement.appendChild(li);
+    }
+};
+
+var ul = document.getElementById('mylist');
+appendDataToElement(ul, data);
+
+var ul = document.getElementById('mylist');
+ul.style.display = 'none';
+appendDataToElement(ul, data);
+ul.style.display = 'block';
+
+var fragment = document.createDocumentFragment();
+appendDataToElement(fragment, data);
+document.getElementById('mylist').appendChild(fragment);
+
+var old = document.getElementById('mylist');
+var clone = old.cloneNode(true);
+appendDataToElement(clone, data);
+old.parentNode.replaceChild(clone, old);
+
+
+
+myElement.style.left = 1 + myElement.offsetLeft + 'px';
+myElement.style.top = 1 + myElement.offsetTop + 'px';
+if (myElement.offsetLeft >= 500) { 
+    stopAnimation();
+}
+
+current++
+myElement.style.left = current + 'px';
+myElement.style.top = current + 'px';
+if (current >= 500) {
+    stopAnimation();
+}
+
+
+
+</script>
+</head>
+<body>
+
+<ul id="mylist"> 
+    <li><a href="#">链接1</a></li>
+    <li><a href="#">链接2</a></li>
+</ul>
+
+</body>
+</html>

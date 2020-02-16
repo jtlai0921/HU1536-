@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var posX = 0, posY = 0; 
+var event = event || window.event; 
+if(event.pageX || event.pageY){ 
+    posX = event.pageX;
+    posY = event.pageY;
+}
+else if(event.clientX || event.clientY){ 
+    posX = event.clientX + document.documentElement.scrollLeft + 
+document.body.scrollLeft;
+    posY = event.clientY + document.documentElement.scrollTop + 
+document.body.scrollTop;
+}
+
+
+
+var pos = function(o, x, y,event){ 
+    var posX = 0, posY = 0; 
+    var e = event || window.event; 
+    if(e.pageX || e.pageY){ 
+        posX = e.pageX;
+        posY = e.pageY;
+    }
+    else if(e.clientX || e.clientY){
+        posX = e.clientX + document.documentElement.scrollLeft + 
+document.body.scrollLeft;
+        posY = e.clientY + document.documentElement.scrollTop + 
+document.body.scrollTop;
+    }
+    o.style.position = "absolute"; 
+    o.style.top = (posY + y) + "px";
+    o.style.left = (posX + x) + "px";
+}
+
+		 
+</script>
+</head>
+<body>
+
+<div id="div1">鼠标跟随</div>
+<script language="javascript" type="text/javascript">
+var div1 = document.getElementById("div1");
+document.onmousemove = function(event){
+    pos(div1, 10, 20,event);
+}
+</script>
+
+</body>
+</html>

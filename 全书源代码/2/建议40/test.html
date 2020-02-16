@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+var r = /abcdef-abcdef-abcdef-abcdef-abcdef/;
+var a = s.match(r); //单元素数组["abcdef-abcdef-abcdef-abcdef-abcdef"]
+
+
+var r = /(abcdef-?)*/;// 分组模式进行匹配
+var a = s.match(r); //["abcdef-abcdef-abcdef-abcdef-abcdef", "abcdef"]
+
+
+var r = /(abcdef-?){5}/;	// 连续匹配5次子表达式
+var r = /(abcdef-?){1,5}/;// 最多匹配5次子表达式
+var r = /(abcdef-?){0,}/; // 匹配任意次子表达式
+var r = /(abcdef-?)?/;// 最多匹配一次子表达式
+var r = /(abcdef-?)+/;// 最小匹配一次子表达式
+
+
+var s = "<html>< html><html >< html ></html>< /html></ html>< / html >";
+var r = /<([\/\s]*?)html(\s)*?>/g;
+var a = s.match(r); //["<html >","< html >","< html  >","<  html  >","</html >","<  /html >","< / html >","<  / html  >"]
+
+
+
+var s ="javascript is not java";
+var r = /java(script)?/g;
+var a = s.match(r); //["javascript","java"]
+
+
+var s ="ab=21,bc=45,cd=43";
+var r = /(\w+)=(\d*)/;
+var a = s.match(r);	//["ab=21" , "ab","21"]
+
+
+var s ="<h1>title<h1><p>text<p>";
+var r = /(<\/?\w+>).*\1/g;
+var a = s.match(r); 	//["<h1>title<h1>" , "<p>text<p>"]
+
+
+
+var s ="<h1>title<h1><p>text<p>";
+var r = /((<\/?\w+>).*\2)/g;
+var a = s.match(r);	//["<h1>title<h1>" , "<p>text<p>"]
+
+
+var s ="<h1>title</h1><p>text</p>";
+var r = /((<\/?\w+>).*\2)/g;
+var a = s.match(r); 	//null
+
+
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

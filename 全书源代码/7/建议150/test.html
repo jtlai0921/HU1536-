@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var choices = new Array();
+function fillChoiceBoxes(year) {
+    if(dojo.indexOf(choices, year) == -1) {
+        // go
+    } else {
+        choices[year] = result;
+        // result of ajax call.
+    }
+    // calling a function to fill the values...
+    fillSelect(dojo.byId('makes'), choices[year]);
+}
+
+{"motorcycle" : { 
+    "year" : "2012", 
+    "make" : "Moto", 
+    "model" : "Uberfast"
+    }
+}
+
+
+</script>
+</head>
+<body>
+
+<motorcycle> 
+    <year>2012</year>
+    <make>Moto</make>
+    <model>Uberfast</model>
+</motorcycle>
+
+</body>
+</html>

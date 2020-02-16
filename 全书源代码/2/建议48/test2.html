@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+String.prototype.trim = function() {
+    var start = 0,
+    end = this.length - 1, ws = "\n\r\t\f\x0b\xa0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u2028\u2029\u202f\u205f\u3000\ufeff";
+    while (ws.indexOf(this.charAt(start)) > -1) {
+        start++;
+    }
+    while (end > start && ws.indexOf(this.charAt(end)) > -1) {
+        end--;
+    }
+    return this.slice(start, end + 1);
+}
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

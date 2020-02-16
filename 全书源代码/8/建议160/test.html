@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+//1
+alert('\v supported ' + (String.fromCharCode(11) == '\v')); 
+
+
+//2
+var s = "this is a \
+ multiline string";
+
+
+//4
+function foo() {
+    document.write(arguments);
+    document.write(arguments[0]);
+    eval("arguments = 10;");
+    document.write(arguments);
+    document.write(arguments[0]);
+} 
+foo("test");
+
+
+function foo() {
+    document.write(arguments);
+    document.write(arguments[0]);
+    arguments = 10;
+    document.write(arguments);
+    document.write(arguments[0]);
+} 
+foo(42);
+
+//5
+
+var __global__ = this;
+function invisibleToIE() { 
+    document.write("IE can't see me");
+}
+__global__.visibleToIE = function() {
+    document.write("IE sees me");
+}
+for(func in __global__) {
+    var f = __global__[func];
+    if(func.match(/visible/)) {
+        f();
+    }
+}
+
+
+
+var __global__ = this;
+function invisibleToIE() { 
+    document.write("IE can't see me");
+}
+__global__.visibleToIE = function() {
+    document.write("IE sees me");
+}
+document.write(delete this.invisibleToIE);
+
+
+
+
+
+var __global__ = this;
+document.write( typeof (__global__) + '<br>');
+var f = ['toString', 'toLocaleString', 'valueOf', 'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable'];
+for( i = 0; i < f.length; i++) { 
+    test(f[i]);
+}
+function test(s) {
+    if(__global__[s]) {
+        document.write(s + ' supported' + '<br>');
+    }
+}
+
+
+
+
+//7
+
+var foo = function bar(b) { 
+    if(b == true) {
+        bar();// 可以工作，因为在函数内部bar标识符是可见的
+    } else {
+        document.write("hello");
+    }
+}
+foo();// 可以工作，因为foo标识符指向一个函数对象
+bar(false);//失败，因为在全局环境中bar是不可见的
+
+
+
+
+
+function f(x) { 
+    x();
+    y = function x() {
+        document.write("inner called ")
+    };
+    document.write(x);
+    document.write(arguments[0]);
+}
+document.write("test 4 ");
+f("param");
+
+
+
+
+
+function foo() {
+    function bar() {}
+    var x = function baz(z) {
+        document.write("baz" + z);
+        if(z)  baz(false);
+    };
+    x(true);	//合法的
+    bar();	//合法的
+    baz(true);	//原来是非法的，现在是合法的
+}
+foo();
+
+
+
+
+//8
+document.write('1 < 10 == ' + (1 < 10) + '<br>');
+document.write('NaN < 1 == ' + (NaN < 1) + '<br>');
+document.write('1 < Infinity == ' + (1 < Infinity) + '<br>');
+document.write('"10" < 1 == ' + ("10" < 1) + '<br>');
+document.write('1 < "a" == ' + (1 < "a") + '<br>');
+document.write('"a" < "b" == ' + ("a" < "b") + '<br>');
+
+
+
+//9
+var v = 'value 1';
+var o = {v : 'value 2'};
+function f1() { 
+    alert('v == ' + v);
+};
+with(o) {
+    function f2() {
+        alert('v == ' + v);
+    };
+}
+f1();
+f2();
+// 修改变量的值
+v = 'modified value 1';
+o.v = 'modified value 2';
+f1();
+f2();
+
+
+
+
+
+var f1 = function() { 
+    alert('v == ' + v);
+};
+with(o) {
+    var f2 = function() {
+        alert('v == ' + v);
+    };
+}
+
+
+
+
+
+
+//10
+
+function cowboy() {
+    this.toString = function() {
+        return "cowboy";
+    }
+    this.shoot = function() {
+        return "bang!";
+    }
+}
+var p = new cowboy();
+document.write("Enumerable properties:");
+for(var i in p) { 
+    document.write(" ", i);
+}
+document.write("<br/>cowboy propertyIsEnumerable(\"toString\"): ", p.propertyIsEnumerable("toString"));
+document.write("<br/>cowboy hasOwnProperty(\"toString\"): ", p.hasOwnProperty("toString"));
+
+
+
+//11
+function foo() {
+    try {
+        throw "hello";
+    } catch(x) {
+        document.write(x);
+    }
+    document.write(x);// x 在这儿应该是不可见的
+}
+foo();
+
+
+function foo() {
+    this.x = 11;
+}
+x = "global.x";
+try {
+    throw foo;
+} catch(e) {
+    document.write(x) // 应该输出“global.x”
+    e();
+    document.write(x) // 应该把x添加到 e对象上，但是IE和FF却修改了全局变量x
+}
+document.write(x); // 应该输出 “global.x”.
+
+
+
+//12
+
+
+var array = [1, 2]; 
+alert(array.join());
+alert(array.join(undefined));
+alert(array.join('-'));
+
+
+
+//13
+
+var a = new Array(1, 2, 3);
+var l = a.unshift();
+document.write(l, " ");
+document.write(a.length, " ");
+document.write(a, " ");
+l = a.unshift(2);
+document.write(l, " ");
+document.write(a.length, " ");
+document.write(a, " ");
+
+
+
+//16
+var number = 123.456;
+document.write('number.toString() == ' + number.toString() + '<br>');
+document.write('number == ' + number + '<br>');
+try { 
+    document.write('number.toPrecision(undefined) == ' + number.toPrecision(undefined) + '<br>');
+} catch (e) {
+    document.write('Exception thrown. ' + e.name + ': ' + e.message + '<br>');
+}
+
+
+
+
+//18
+//重写Array.prototype.toString ，使字符串包含在引号中，同时显示undefined值
+Array.prototype.toString = function() {
+    var s = '';
+    for(var i = 0; i < this.length; i++) {
+        if(s) {
+            s += ',';
+        }
+        switch (typeof this[i]) {
+            case 'string':
+                s += "'" + this[i] + "'";
+                break;
+            case 'undefined':
+                s += 'undefined';
+                break;
+            default:
+                s += this[i];
+                break;
+        }
+    }
+    return '[' + s + ']';
+}
+var a = /((a)|(ab))((c)|(bc))/.exec('abc');
+document.write(a);
+
+
+
+//19
+Array.prototype.toString = function() { 
+    //参考“18. Disjunction”中的示例
+}
+var a1 = /(z)((a+)?(b+)?(c))*/.exec('zaacbbbcac');
+var a2 = /(a*)*/.exec('b');
+document.write(a1);
+document.write('<br>'); 
+document.write(a2);
+
+
+
+
+//20
+Array.prototype.toString = function() { 
+    //参考“18. Disjunction”的示例
+}
+var a = /(.*?)a(?!(a+)b\2c)\2(.*)/.exec('baaabaac'); 
+document.write(a);
+
+
+
+//21
+
+function test(p, f) {
+    try {
+        var r = new RegExp(p, f);
+        document.write(r.toString() + '<br>');
+    } catch (e) {
+        document.write(e.name + ': ' + e.message + '<br>');
+    }
+} test(new RegExp('foo'));// ok
+test(new RegExp('foo'), undefined);// ok
+test(new RegExp('foo'), 'gim');// TypeError
+test('foo');// ok
+test('foo', undefined);// ok
+test(undefined, 'gim');// ok
+test('foo', 'gimgim');// SyntaxError
+test('foo', 'pvl');// SyntaxError
+
+
+
+//22
+var d = new Date("10 July 2001");
+var y = d.getYear();
+document.write(y + '<br>');
+
+
+//23
+var d = new Date(+0);
+d.setYear(95);
+y = d.getYear();
+document.write("setYear: " + y + " ");
+d.setFullYear(95);
+y = d.getYear();
+document.write("setFullYear: " + y);
+
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

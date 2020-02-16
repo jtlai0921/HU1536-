@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+// 把this转换为静态指针，参数o表示预设置this所指代的对象，返回一个闭包函数
+Function.prototype.pointTo = function(o){
+    var _this = this;	// 存储当前函数对象
+    return function(){	// 一个闭包函数
+        return  _this.apply(o, arguments); //执行当前函数并把当前函数的作用域强制设置为指定对象
+    }
+}
+
+var o ={
+    name : "this = o"
+}
+o.b = (function(){
+    return this;
+}).pointTo(o);	// 把this绑定到对象o身上
+var o1 ={
+    name : "this = o1",
+    b : o.b
+}
+var a = o1.b();
+alert(a.name);	// 字符串"this=o"，说明this的值没有发生变化
+
+
+// 把构造函数转换为实例对象， 参数f表示构造函数，返回构造函数f()的实例对象
+function instanceFrom(f){
+    var a = [].slice.call(arguments, 1);	// 获取构造函数的参数
+    f.prototype.constructor = f;	// 手工设置构造函数的原型构造器
+    f.apply(f.prototype, a);	// 在原型对象上强制执行构造函数
+    return f.prototype;	// 返回原型对象
+}
+
+function F(){
+    this.name = "F";
+}
+var f = instanceFrom(F);
+alert(f.name);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<head>
+<script type="text/javascript">
+    document.write(" object s between Javascript and DOM!");
+    function myFunction(element) {
+        this.elementReference = element;
+        element.expandoProperty = this;
+    }
+    function Leak() {
+        new myFunction(document.getElementById("myDiv"));
+    }
+</script>
+</head>
+<body onload="Leak()">
+<div id="myDiv"></div>
+</body>
+</html>

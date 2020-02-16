@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function Person(name, age) {
+    eventTarget.call(this);
+    this.name = name;
+    this.age = age;
+}
+inheritPrototype(Person, EventTarget);
+Person.prototype.say = function(message) {
+    this.fire({
+        type : "message",
+        message : message
+    });
+};
+function handleMessage(event) {
+    alert(event.target.name + "says: " + event.message);
+}
+//创建新person
+var person = new Person("Nicholas", 29);
+//添加一个事件处理程序
+Person.addHandler("message", handleMessage);
+//在该对象上调用一个方法，它触发消息事件
+person.say("Hi there");
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

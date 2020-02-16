@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function f( x ){ 	// 构造函数
+    this.x = x; 
+}
+var a = [];
+for( var i = 0; i < 100; i ++ ){ 	// 使用for循环结构批量复制构造类f的同一个实例
+    a[i] = new f( 10 ); 	// 把实例分别存入数组
+
+function f( x ){ 	// 构造函数
+    this.x = x; 
+}
+var a = [];
+function temp(){};	// 定义一个临时的空构造类temp
+temp.prototype = new f( 10 ); 	// 把构造类f实例化，并把该实例传递给构造类temp的原型对象
+for( var i = 0; i < 100; i ++ ){ ; 	// 使用for循环结构批量复制临时构造类temp的同一个实例
+    a[i] = new temp();	// 把实例分别存入数组
+}
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>

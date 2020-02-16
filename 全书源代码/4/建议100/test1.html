@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+var F = (function(){
+    function set5(x){	// 静态私有方法
+        _a = x;
+    }
+    function get5(){	// 静态私有方法
+        return _a;
+    }
+})();
+
+
+alert(F.get3());	// 直接访问类F的静态方法get3()，返回1
+F.set3(2); 	// 修改私有变量的值
+alert(F.get3());	//2，说明修改成功
+
+
+var a = new F()	// 实例化类F
+alert(a.get2());	// 调用类F的公共方法get2()，返回1
+a.set2(2); 	// 调用类F的公共方法set2()，修改私有变量_a
+alert(a.get2());	// 调用类F的公共方法get2()，返回2
+
+
+var a = new F()
+alert(a.get1());
+a.set1(2);
+alert(a.get1());
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

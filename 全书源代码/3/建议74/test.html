@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+// 声明3个对象，每个对象都有属性id和date  
+var a  = new Object();  
+var b  = new Object();  
+var c  = new Object();  
+a.id   = 1;  
+b.id   = 2;  
+c.id   = 3;  
+a.date = new Date(2012,3,12);  
+b.date = new Date(2012,1,15);  
+c.date = new Date(2012,2,10);  
+// 存放在arr数组中  
+var arr = [a, b, c];  
+//开始调试，留意id的排列是按1、2、3这样的顺序的  
+arr.sort(  
+  function (x,y) {  
+    return x.date-y.date;  
+  }  
+);  
+//已经对arr排序了，发现元素顺序发生变化，id也发生变化。排序的依据是按照日期进行的
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

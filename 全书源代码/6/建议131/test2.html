@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+// 重设元素的样式属性值
+// 参数：e表示重设样式的元素，o表示要设置的值，它是一个对象，可以包含多个名值对
+// 返回值：重设样式的原属性值，以对象形式返回
+function setCSS(e, o){
+    var a = {};
+    for(var i in o){ 
+        a[i] = e.style[i]; 
+        e.style[i] = o[i]; 
+    }
+    return a; 
+}
+// 恢复元素的样式属性值
+// 参数：e表示重设样式的元素，o表示要恢复的值，它是一个对象，可以包含多个名值对
+// 返回值：无
+function resetCSS(e,o){
+    for(var i in o){ 
+        e.style[i] = o[i]; 
+    }
+}
+// 获取元素的存在宽度
+// 参数：e表示元素
+// 返回值：存在宽度
+function getW(e){
+    if(getStyle(e,"display") != "none") return e.offsetWidth || 
+fromStyle(getStyle(e,"width"));
+    var r = setCSS( e, {
+        display:"",
+        position:"absolute",
+        visibility:"hidden"
+    });
+    var w = e.offsetWidth || fromStyle(getStyle(e,"width"));
+    resetCSS(e,r); 
+    return w;// 返回存在宽度
+}
+// 获取元素的存在高度
+// 参数：e表示元素
+// 返回值：存在高度
+function getH(e){ 
+    if(getStyle(e,"display") != "none") return e.offsetHeight || 
+fromStyle(getStyle(e,"height"));
+    var r = setCSS( e, {
+        display:"",
+        position:"absolute",
+        visibility:"hidden"
+    });
+    var h = e.offsetHeight || fromStyle(getStyle(e,"height"));
+    resetCSS(e,r); 
+    return h; 
+}
+
+
+</script>
+</head>
+<body>
+<div id="div" style="height:200px;width:200px;
+border-style:solid;display:none;"></div>
+<script language="javascript" type="text/javascript">
+var div = document.getElementById("div");
+var w = div.offsetWidth; 	// 返回0
+var h = div.offsetHeight;	// 返回0
+var w1 = getW(div); 	// 返回200
+var h1 = getH(div); 	// 返回200
+</script>
+
+</body>
+</html>

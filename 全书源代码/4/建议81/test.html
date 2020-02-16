@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function a(x){ 	// 构造函数a
+    this.x = x;
+}
+a.prototype.x = 0;
+function b(x){	// 构造函数b
+    this.x = x;
+}
+b.prototype = new a(1);	// 原型对象为构造函数a的实例
+function c(x){	// 构造函数c
+    this.x = x;
+}
+c.prototype = new b(2); 	// 原型对象为构造函数b的实例
+var d = new c(3);
+alert(d.x); 	//3
+delete d.x; 
+alert(d.x);	//2
+delete c.prototype.x; 
+alert(d.x);	//1
+delete b.prototype.x; 
+alert(d.x); 	//0
+delete a.prototype.x; 
+alert(d.x); 	//undefined
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

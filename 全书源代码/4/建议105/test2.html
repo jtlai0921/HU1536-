@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+MyNamespace.Ssingleton = (function() {
+     // 私有成员 
+     var privateAttribute1 = false;
+     function privateMethod1() {}
+     return { 
+        // 公有成员
+        publicAttribute1: true,
+        publicMethod1: function() { }
+    };
+})();
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

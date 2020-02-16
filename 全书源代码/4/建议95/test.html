@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+function D(){	// 自定义构造函数
+    Date.apply(this,arguments); 	// 调用Date对象，对其进行引用，实现继承的目的
+}
+var d = new D();	// 实例化自定义构造函数
+alert(d.toLocaleString());	//[object Object]
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

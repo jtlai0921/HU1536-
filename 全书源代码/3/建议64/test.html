@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+Function.prototype.method = function(name, func) {
+    this.prototype[name] = func;
+    return this;
+};
+
+
+Number.method('integer', function() { 
+    return Math[this < 0 ? 'ceil' : 'floor'](this);
+});
+document.writeln((-10 / 3).integer());	//-3
+
+
+String.method('trim', function() {
+    return this.replace(/^\s+|\s+$/g, '');
+});
+document.writeln('"' + " abc ".trim() + '"');	// 'abc''
+
+
+Function.prototype.method = function(name, func) {
+    if(!this.prototype[name]) {
+        this.prototype[name] = func;
+        return this;
+    }
+};
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

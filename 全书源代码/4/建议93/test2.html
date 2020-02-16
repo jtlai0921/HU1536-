@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+// 基类A
+function A( x ){ 
+    this.getl = function(){
+        return x;
+    }
+}
+A.prototype.has = function(){
+    return ! ( this.getl() == 0 );
+}
+// 超类B
+function B(){
+    var a = [];
+    a = Array.apply( a, arguments );
+    A.call( this, a.length );
+    this.add = function(){
+        return a.push.apply( a, arguments ); 
+    }
+    this.geta = function(){
+        return a;  
+    }
+}
+B.prototype = new A();	//建立原型链
+B.prototype.constructor = B; 	// 恢复构造器
+B.prototype.str = function(){
+    return this.geta().toString();
+}
+// 子类C
+function C(){
+    B.apply( this, arguments ); 	// 在当前对象中调用B类
+    this.sort = function(){
+        var a = this.geta();
+        a.sort.apply( a, arguments ); 
+    }
+}
+C.prototype = new B();	//建立原型链
+C.prototype.constructor = C; 	// 恢复C类原型对象的构造器
+// 超类B的实例继承类A的成员
+var b  = new B( 1, 2, 3, 4 ); 
+alert( b.getl() ); 	//4
+alert( b.has() ); 	//true
+// 子类C的实例继承类B和类A的成员
+var c  = new C( 30, 10, 20, 40 ); 
+c.add( 6, 5 ); 
+alert( c.geta() ) 	//数组30,10 ,20,40 ,6,5
+c.sort()	// 排序数组
+alert( c.geta() ) 	//数组10,20 ,30,40 ,5,6
+alert( c.getl() ) 	//4
+alert( c.has() ); 	//true
+alert( c.str() ); 	//10,20 ,30,40 ,5,6
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var A = function(){}	// 类A
+A.prototype = { 
+    x : function(){
+        return "x";
+    }
+}
+var B = function(){}	// 类B
+B.prototype = {
+    y : function(){
+        return "y";
+    }
+}
+C = function(){};	// 空类C
+extend(C,A); 	// 把类A继承给类C
+extend(C,B); 	// 把类B继承给类C
+var c = new C();	// 实例化类C
+alert(c.x())	//字符x
+alert(c.y())	//字符y
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

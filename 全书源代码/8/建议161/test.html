@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+//4
+function dough() {
+    this.da = "da";
+    this.db = "db";
+    this.dc = "dc";
+}
+bread.prototype = new dough();
+function bread() {
+    this.ba = "ba";
+    this.bb = "bb";
+    this.bc = "bc";
+}
+pizza.prototype = new bread();
+function pizza() {
+    this.pa = "pa";
+    this.pb = "pb";
+    this.pc = "pc";
+}
+function getProperties(obj, objName) {
+    var res = "";
+    for(var i in obj) {
+        res += objName + "." + i + " = " + obj[i] + "<br>";
+    }
+    return res;
+}
+var p = new pizza();
+document.write(getProperties(p, "pizza"));
+
+
+//5
+
+function foo() { 
+    function bar() {}
+    return bar;
+}
+var x = foo();
+var y = foo();
+x.blah = 1;
+y.blah = 2;
+document.write(x.blah + y.blah);
+
+
+
+//6
+if(true) {
+    function bar() {
+        document.write("bar1");
+    }
+} else {
+    function bar() {
+        document.write("bar2");
+    }
+} 
+bar();
+function foo() {
+    if(true) {
+        function baz() {
+            document.write("baz1");
+        }
+    } else {
+        function baz() {
+            document.write("baz2");
+        }
+    }
+    baz();
+}
+foo();
+
+//7
+var sum = eval("1 + 2");
+alert(sum);
+var myeval = eval;
+try { 
+    sum = myeval("1 + 2");
+    alert(sum);
+} catch (e) {
+    alert("indirect eval not supported!");
+}
+
+
+//8
+alert(parseInt("08", undefined));
+alert(parseInt("08", 0));
+alert(parseInt("011", undefined));
+alert(parseInt("011", 0));
+
+
+
+//9
+function foo() { 
+    var e = {
+        name : "value",
+        id : 11
+    };
+    return e;
+} 
+alert(foo.toString().indexOf(','));
+
+
+
+//12
+var n = Number(123456789.00);
+var d = new Date();
+var t = new Date().getTime();
+var s = "hello world";
+var a = new Array();
+a.push(n);
+a.push(d);
+a.push(d);
+a.push(s);
+document.write(a.toString() + "<br>");
+document.write(a.toLocaleString() + "<br>");
+
+
+
+//14
+var val = 42;
+document.write('val.toString() == ' + val.toString() + '<br>');
+document.write('val.toString(2) == ' + val.toString(2) + '<br>');
+document.write('val.toString(8) == ' + val.toString(8) + '<br>');
+document.write('val.toString(16) == ' + val.toString(16) + '<br>');
+document.write('val.toString(36) == ' + val.toString(36) + '<br>');
+try { 
+    document.write('val.toString(100) == ' + val.toString(100) + '<br>');
+} catch(e) {
+    document.write('Invalid Radix Error: ' + e.name + ': ' + e.message + '<br>');
+}
+document.write('val.toString() == ' + val.toString() + '<br>');
+try {
+    document.write('val.toString(undefined) == ' + val.toString(undefined) + '<br>');
+} catch(e) {
+    document.write('Invalid Radix Error: ' + e.name + ': ' + e.message + '<br>');
+}
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

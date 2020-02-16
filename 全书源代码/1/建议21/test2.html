@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+//方法1
+for (var i=0; i < items.length; i++){ 
+    process(items[i]);
+}
+//方法2
+var j=0;
+while (j < items.length){
+    process(items[j++]);
+}
+//方法3
+var k=0;
+do {
+    process(items[k++]);
+} while (k < items.length);
+
+
+
+
+
+for (var i=0, len=items.length; i < len; i++){ 
+    process(items[i]);
+}
+var j=0, count = items.length;
+while (j < count){
+    process(items[j++]);
+}
+var k=0, num = items.length;
+do {
+    process(items[k++]);
+} while (k < num);
+
+
+
+
+for (var i=items.length; i--; ){
+    process(items[i]);
+}
+var j = items.length;
+while (j--){
+    process(items[j]);
+}
+var k = items.length-1;
+do {
+    process(items[k]);
+} while (k--);
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+function testNextSibling() {
+    var el = document.getElementById('mydiv'), ch = el.firstChild, name = '';
+    do {
+        name = ch.nodeName;
+    } while (ch = ch.nextSibling);
+    return name;
+};
+function testChildNodes() {
+    var el = document.getElementById('mydiv'), ch = el.childNodes, len = ch.length, name = '';
+    for(var count = 0; count < len; count++) {
+        name = ch[count].nodeName;
+    }
+    return name;
+};
+
+		 
+</script>
+</head>
+<body>
+
+</body>
+</html>

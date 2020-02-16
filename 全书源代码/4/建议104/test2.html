@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+Function.method('inherits', function (Parent) { 
+     this.prototype = new Parent(); 
+     return this; 
+});
+
+var Cat = function(name) {
+    this.name = name;
+    this.saying = 'meow';
+}.inherits(Mammal).method('purr', function(n) {
+    var i, s = '';
+    for( i = 0; i < n; i += 1) {
+        if(s) {
+            s += '-';
+        }
+        s += 'r';
+    }
+    return s;
+}).method('get_name', function() {
+    return this.says() + ' ' + this.name + ' ' + this.says();
+});
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

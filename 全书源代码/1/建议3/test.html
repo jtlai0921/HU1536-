@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var f = 'value';
+
+window.f = 'value';
+
+var My = {}; 
+My.name = {
+    "first-name" : " first ",
+    "last-name" : " last "
+};
+My.work = {
+    number : 123,
+    one : {
+        name : " one ",
+        time : "2012-9-14 12:55",
+        city : "beijing"
+    },
+    two : {
+        name : "two",
+        time : "2012-9-12 12:42",
+        city : "shanghai"
+    }
+};
+
+
+var foo = function() {
+    var a = 1, b = 2;
+    var bar = function() {
+        var b = 3, c = 4;	// a=1, b =3, c=4
+        a += b + c;	// a=8, b =3, c=4
+    };	// a=1, b =2, c=undefined
+    bar();	// a=21, b =2, c=undefined
+};
+
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+var dom = "HTML";	// 指定DOM模块
+var ver = "1.0";	// 指定DOM级别
+if(document.implementation){	// 如果浏览器支持implementation对象，则进行测试
+    if(document.implementation.hasFeature(dom, ver)){ 	// 检测对指定DOM模块及版本的支持情况
+        alert("支持:\n" + dom + " " + ver);
+    }
+    else{
+        alert("不支持:\n" + dom + " " + ver);
+    }
+}
+else{
+    alert("不支持:\nDOMImplementtation对象");
+}
+
+
+		 
+</script>
+</head>
+<body>
+
+</body>
+</html>

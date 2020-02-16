@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>与客户交互页面</title>
+<script language="javascript" type="text/javascript">
+// 创建浮动框架
+// 参数：url表示要请求的服务器端文件路径
+// 返回值：无
+function hideIframe(url){
+    var hideFrame = null; 							// 定义浮动框架变量
+    hideFrame = document.createElement("iframe"); 	// 创建iframe元素
+    hideFrame.name = "hideFrame"; 					// 设置名称属性
+    hideFrame.id = "hideFrame"; 					// 设置ID属性
+    hideFrame.style.height = "0px"; 				// 设置高度为0
+    hideFrame.style.width = "0px"; 					// 设置宽度为0
+    hideFrame.style.position = "absolute";
+ 	// 设置绝对定位，避免浮动框架占据页面空间
+    hideFrame.style.visibility = "hidden"; 			// 设置隐藏显示
+    document.body.appendChild(hideFrame); 
+	// 把浮动框架元素插入到body元素中
+    setTimeout(function()							// 设置延缓请求时间
+    {
+        frames["hideFrame"].location.href = url;
+    }, 10)
+}
+
+function request(){							// 异步请求函数
+    var user = document.getElementById("user");
+	// 获取用户名文本框，注意引用路径的不同
+    var pass = document.getElementById("pass");
+	// 获取密码域，注意引用路径的不同
+    var s = "serve.htm?user=" + user.value + "&pass=" + pass.value;
+    hideIframe(s); 	// 调用函数创建浮动框架，指定请求的服务器文件和传递的信息
+}
+
+function callback(b, n){
+    if(b && n){ 			// 如果返回信息合法，则在页面中显示新的信息
+        var e = document.getElementsByTagName("body")[0];
+        e.innerHTML = "<h1>" + n + "</h1><p>您好，欢迎登录站点</p>";
+    }
+    else{					// 否则，提示错误信息，并显示表单要求重新输入
+        alert("你输入的用户名或密码有误，请重新输入");
+        var user = parent.document.getElementById("user");
+		// 获取文档中的用户名文本框
+        var pass = parent.document.getElementById("pass");
+		// 获取文档中的密码域
+        user.value = "";		// 清空文本框
+        pass.value = "";		// 清空密码域
+    }
+}
+
+window.onload = function(){		// 页面初始化处理函数
+    var b = document.getElementById("submit");	// 获取【提交】按钮
+    b.onclick = request; 			// 绑定鼠标单击事件处理函数
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1>用户登录</h1>
+用户名：<input name="" id="user" type="text"><br />
+密　码：<input name="" id="pass"  type="password"><br />
+<input name="submit" type="button" id="submit" value="提交" />
+</body>
+</html>

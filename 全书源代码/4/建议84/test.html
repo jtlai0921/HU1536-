@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+var name;
+for(name in obj) {
+    if( typeof obj[name] !== 'function') {
+        document.writeln(name + ': ' + obj[name]);
+    }
+}
+
+var i;
+var properties = ['one', 'two', 'three', 'four'];
+for( i = 0; i < properties.length; i += 1) { 
+    document.writeln(properties[i] + ': ' + obj[properties[i]]);
+}
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

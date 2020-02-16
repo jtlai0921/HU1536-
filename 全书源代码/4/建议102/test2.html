@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function F(){
+    this.x = 1; 
+    return 2; 
+}
+var f = new F();
+alert(f.x); 	//1 
+alert(F());	//2 
+
+function F(){
+    this.x = 1;
+    return function(){
+        return this.x;
+    };
+}
+F.prototype.y = function(){
+    alert(3);
+}
+var f = new F();
+alert(f.x); 	// 访问本地属性x失败，返回undefined
+alert(F()());	// 调用返回的函数，返回1，说明它可以访问本地属性x
+alert(f.y());	// 提示编辑错误，没有这个成员
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

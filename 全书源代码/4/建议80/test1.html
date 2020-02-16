@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function p(x){	// 构造函数
+    this.x = x;
+}
+p.prototype.backup = function(){	// 原型方法，备份本地对象的数据到原型对象中
+    for(var i in this){
+        p.prototype[i] = this[i];
+    }
+}
+var p1 = new p(1); 
+p1.backup();	// 备份实例对象中的数据
+p1.x =10; 	// 改写本地对象的属性值
+alert(p1.x) ; 	//10，说明属性值已经被改写
+p1 = p.prototype; ;	// 恢复备份
+alert(p1.x) ; 	//1，说明对象的属性值已经被恢复到原始值
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

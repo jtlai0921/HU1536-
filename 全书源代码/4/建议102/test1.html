@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function F( x, y ){ 
+    this.x = x;
+    this.y = y;
+}
+F.prototype.add = function(){
+    alert( this.x + this.y );
+}
+
+function O( o, x, y ){  
+    this.say = function(){
+        alert( "享元类" );
+    }
+    return function(){
+        this.say = function(){
+            alert( "返回类" );
+        }
+        var a = new o( x, y ); 		// 实例化参数类
+        for( var i in a ){ 		// 通过实例继承法，继承参数类给返回类
+            this[i] = a[i]; 		// 此时this关键字只返回类的当前对象
+        }
+    }
+}
+var A = new O( F, 1, 2 ); 
+var B = new A();
+A.say();	// 如果直接调用享元类的本地方法，将提示编辑错误
+
+B.say();	//字符串＂返回类＂
+B.add();	//数值3 
+alert( B.x ); 	//数值1 
+alert( B.y ); 	//数值2 
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

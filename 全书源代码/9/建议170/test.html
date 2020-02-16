@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function addHandler(target, eventType, handler) {
+    if(target.addEventListener) {//DOM2 Events
+        target.addEventListener(eventType, handler, false);
+    } else {//IE
+        target.attachEvent("on" + eventType, handler);
+    }
+}
+function removeHandler(target, eventType, handler) {
+    if(target.removeEventListener) {//DOM2 Events
+        target.removeEventListener(eventType, handler, false);
+    } else {//IE
+        target.detachEvent("on" + eventType, handler);
+    }
+}
+
+
+
+function addHandler(target, eventType, handler) {
+    if(target.addEventListener) {//DOM2 Events
+        addHandler = function(target, eventType, handler) {
+            target.addEventListener(eventType, handler, false);
+        };
+    } else {//IE
+        addHandler = function(target, eventType, handler) {
+            target.attachEvent("on" + eventType, handler);
+        };
+    }
+    addHandler(target, eventType, handler);
+}
+function removeHandler(target, eventType, handler) {
+    if(target.removeEventListener) {//DOM2 Events
+        removeHandler = function(target, eventType, handler) {
+            target.addEventListener(eventType, handler, false);
+        };
+    } else {//IE
+        removeHandler = function(target, eventType, handler) {
+            target.detachEvent("on" + eventType, handler);
+        };
+    }
+    removeHandler(target, eventType, handler);
+}
+
+
+var addHandler = document.body.addEventListener ? function(target, eventType, handler) {
+    target.addEventListener(eventType, handler, false);
+} : function(target, eventType, handler) {
+    target.attachEvent("on" + eventType, handler);
+};
+var removeHandler = document.body.removeEventListener ? function(target, eventType, handler) {
+    target.removeEventListener(eventType, handler, false);
+} : function(target, eventType, handler) {
+    target.detachEvent("on" + eventType, handler);
+};
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

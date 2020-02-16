@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function p(x){	//构造函数
+    this.x = x; 
+}
+p.prototype.x = 1; 
+var p1 = new p(10); 
+alert(p1.x); 	//10，本地属性覆盖原型属性
+
+
+
+function p(x){	// 构造函数
+    if(x) 	// 如果参数存在，则使用该参数设置属性，此条件是关键
+        this.x = x; 
+}
+p.prototype.x = 0; 	// 利用原型属性，设置本地属性x的默认值
+var p1 = new p();
+alert(p1.x); 	//0，显示本地属性的默认值
+var p2 = new p(1); 
+alert(p2.x); 	//1，显示本地属性的初始化值
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

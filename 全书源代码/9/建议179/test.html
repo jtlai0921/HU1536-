@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+
+var pDiv = document.createElement("div"); 
+document.body.appendChild(pDiv);    // Reflow
+var cDiv1 = document.createElement("div"); 
+var cDiv2 = document.createElement("div"); 
+pDiv.appendChild(cDiv1);-   //Reflow
+pDiv.appendChild(cDiv2);-   // Reflow
+
+
+
+var pDiv = document.createElement("div"); 
+var cDiv1 = document.createElement("div"); 
+var cDiv2 = document.createElement("div"); 
+pDiv.appendChild(cDiv1); 
+pDiv.appendChild(cDiv2); 
+document.body.appendChild(pDiv);-   //Reflow
+
+
+
+var pDiv = document.getElementById("parent"); 
+pDiv.style.display = "none" ;  // reflow
+pDiv.appendChild(cDiv1); 
+pDiv.appendChild(cDiv2); 
+pDiv.appendChild(cDiv3); 
+pDiv.appendChild(cDiv4); 
+pDiv.appendChild(cDiv5); 
+pDiv.style.width = "100px"; 
+pDiv.style.height = "100px"; 
+pDiv.style.display = "block" ;  // reflow
+
+
+var width = element.offsetWidth;
+var scrollleft = element.scrollleft;
+var display = window.getComputerStyle(div,’’).getPropertyValue(‘display’) ;
+
+
+
+var pe = document.getElementById("pos_element"); 
+var result = document.getElementById("result_element"); 
+var pOffsetWidth = pe.offsetWidth;
+result.children[0].style.width  = pOffsetWidth; 
+result.children[1].style.width  = pOffsetWidth; 
+result.children[2].style.width  = pOffsetWidth; 
+
+
+
+var sElement = document.getElementById("pos_element"); 
+sElement.style.border = ‘ 1px solid red ’
+sElement.style.backgroundColor = ‘ silver ’
+sElement.style.padding = ‘ 2px 3px ’
+sElement.style.marginLeft = ‘ 5px ’
+
+
+.class1 { 
+    border: ‘ 1px solid red ’
+    background-color: ‘ silver ’
+    padding: ‘ 2px 3px ’
+    margin-left: ‘ 5px ’
+ } 
+ document.getElementById("pos_element").className = ‘class1’ ;
+
+
+
+var sElement = document.getElementById("pos_element"); 
+var newStyle = ‘ border: 1px solid red; ’ + ‘ background-color: silver; ’ +                                  ‘ padding: 2px 3px; ’ + "margin-left: 5px;"
+sElement.style.cssText += newStyle;
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function Class(type){	// 构造函数
+    this.type = type;
+}
+var instance1 = new Class("instance1"); 	// 实例对象1
+var instance2 = new Class("instance2"); 	// 实例对象2
+
+alert(instance1 instanceof Class); //true，说明instance1对象是Class构造函数的实例
+alert(instance2 instanceof Class); //true，说明instance2对象是Class构造函数的实例
+
+alert(instance1 instanceof Object); //true，说明instance1对象也是Object构造函数的实例
+alert(instance2 instanceof Object); //true，说明instance2对象也是Object构造函数的实例
+ 
+
+
+alert(Class instanceof Object); //true，说明Class类是Object对象的实例（或子类）
+
+alert(instance1 instanceof Function);	 //false，说明它们不是类型与实例的关系
+alert(instance2 instanceof Function); 	//false，说明它们不是类型与实例的关系
+
+alert(Object instanceof Function) ; //true，说明Object对象是Function函数的实例（即子类）
+alert(Function instanceof Object) ; //true，说明Function函数是Object对象的实例（即子类）
+
+var f = new Function();	// 实例化Function对象
+var o = new Object();	// 实例化Object对象
+alert(f instanceof Function);	//true，说明f是Function对象的实例
+alert(f instanceof Object);	//true，说明f是Object对象的实例
+alert(o instanceof Function);	//false，说明o不是Function对象的实例
+alert(o instanceof Object); 	//true，说明o是Object对象的实例
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

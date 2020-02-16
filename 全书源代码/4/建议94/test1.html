@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function A(x){ 	// 构造函数A
+    this.x = x; 
+    this.get = function(){
+        return this.x;
+    }
+}
+A.prototype.add = function(){
+    return this.x + this.x;
+} 
+A.prototype.mul = function(){
+    return this.x * this.x;
+}
+function B(x){	// 构造函数B
+    A.call(this,x); 	// 在函数体内调用构造函数A，实现内部数据绑定
+}
+extend(B,A); 	// 调用类继承封装函数，把A和B的原型捆绑在一起
+var f = new B(5);
+alert(f.get())	//5
+alert(f.add())	//10
+alert(f.mul())	//25
+
+
+extend(B,A);
+B.prototype.add = function(){	// 为B类定义一个原型方法
+    return this.x + "" + this.x
+}
+alert(f.add())	//字符串55，而不是数值10
+
+B.prototype.add = function(){
+    return B.sup.add.call(this);	// 在函数内部调用超类的方法add()
+}
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

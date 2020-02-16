@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function A(x){	// A类
+    this.x1= x; 
+    this.get1 = function(){
+        return this.x1;
+    }
+}
+function B(x){	// B类
+    this.x2 = x; 
+    this.get2 = function(){
+        return this.x2 + this.x2;
+    };
+}
+B.prototype = new A(1);	// 用原型对象继承A的实例
+function C(x){ 	// C类
+    this.x3 = x; 
+    this.get3 = function(){
+        return this.x2 * this.x2;
+    };
+}
+C.prototype = new B(2); 	// 用原型对象继承B的实例
+
+
+var b = new B(2); 
+var c = new C(3);
+alert(b.x1); 	// 在实例对象b中调用A的属性x1，返回1
+alert(c.x1); 	// 在实例对象c中调用A的属性x1，返回1
+alert(c.get3());	// 在实例对象c中调用C的方法get3()，返回9
+alert(c.get2());	// 在实例对象c中调用B的方法get2()，返回4
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

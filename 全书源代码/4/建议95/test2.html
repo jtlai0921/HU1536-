@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+
+function D(){	// 封装函数
+    var d = new Date();	// 实例化Date对象
+    d.get = function(){	// 定义本地方法，间接调用Date对象的toLocaleString()方法
+        alert(d.toLocaleString());
+    }
+    return d; 	//实例对象
+}
+var d = new D();	// 实例化封装函数
+d.get();	// 调用本地方法，返回当前本地的日期和时间
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
